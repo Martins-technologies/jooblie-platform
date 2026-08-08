@@ -10,11 +10,9 @@ import SignUp from '../pages/SignUp'
 import Pricing from '../components/employers/Pricing'
 
 
-const AUTH_PAGES: string[] = ['/signin', '/signup', '/register']
 
 function AppRoutes() {
     const location = useLocation()
-    const isAuthPage = AUTH_PAGES.includes(location.pathname)
 
     return (
         <Routes location={location} key={location.pathname}>
