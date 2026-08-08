@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { Container } from "../components/Container";
+import { Container } from "@jooblie/ui";
 
 // PLACEHOLDER — swap with verified client content before production.
 const ABOUT_CONTENT = {

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import logoUrl from "../assets/logo.png";
-import { Container } from "./Container";
+import { Container } from "@jooblie/ui";
 
 const footerLinkClass =
   "rounded text-sm text-white/75 outline-none hover:text-white focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brandNavy";

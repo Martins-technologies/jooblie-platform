@@ -9,9 +9,7 @@ import {
 } from "@jooblie/core";
 import { useSearchParams } from "react-router-dom";
 
-import { Container } from "../components/Container";
-import { JobCard } from "../components/JobCard";
-import { JobFilters } from "../components/JobFilters";
+import { Container, JobCard, JobFilters } from "@jooblie/ui";
 
 const PAGE_SIZE = 12;
 type EmploymentType = JobListRow["employment_type"];

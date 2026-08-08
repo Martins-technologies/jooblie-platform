@@ -9,8 +9,7 @@ import {
   type JobDetailRow,
 } from "@jooblie/core";
 import { Link } from "react-router-dom";
-
-import { ApplyModal } from "./ApplyModal";
+import { ApplyModal } from "@jooblie/ui";
 
 type SeekerJobActionsProps = {
   readonly job: JobDetailRow;
@@ -33,7 +32,17 @@ export function SeekerJobActions({
   const alreadyApplied = Boolean(application) || optimisticallyApplied;
   const isSaved =
     savedJobsQuery.data?.some((savedJob) => savedJob.job_id === job.id) ?? false;
-  const currentSiteId = resolveSite(env.appSlug)?.id ?? 1;
+  const currentSite = resolveSite(env.appSlug);
+
+  if (!currentSite) {
+    return (
+      <p className="text-sm leading-6 text-muted" role="alert">
+        Site configuration is unavailable. Refresh the page and try again.
+      </p>
+    );
+  }
+
+  const currentSiteId = currentSite.id;
 
   const handleSave = async () => {
     setActionMessage(null);
@@ -103,6 +112,7 @@ export function SeekerJobActions({
           job={job}
           onApplied={handleApplied}
           onClose={() => setApplyOpen(false)}
+          siteId={currentSiteId}
           userId={userId}
         />
       ) : null}

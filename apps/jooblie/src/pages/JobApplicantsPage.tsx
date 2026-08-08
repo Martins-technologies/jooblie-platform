@@ -9,7 +9,7 @@ import {
 } from "@jooblie/core";
 import { Link, useParams } from "react-router-dom";
 
-import { Container } from "../components/Container";
+import { Container } from "@jooblie/ui";
 import { LoadingPage } from "../components/LoadingPage";
 import {
   applicationStatusLabels,

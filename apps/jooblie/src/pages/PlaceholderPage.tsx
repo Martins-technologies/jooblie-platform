@@ -1,4 +1,4 @@
-import { Container } from "../components/Container";
+import { Container } from "@jooblie/ui";
 
 type PlaceholderPageProps = {
   readonly title: string;

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import logoUrl from "../assets/logo.png";
-import { Container } from "./Container";
+import { Container } from "@jooblie/ui";
 
 interface NavItem {
   readonly label: string;

@@ -21,7 +21,7 @@ import {
   inputClassName,
   primaryButtonClassName,
 } from "../components/AuthCard";
-import { Container } from "../components/Container";
+import { Container } from "@jooblie/ui";
 import { LoadingPage } from "../components/LoadingPage";
 
 type CreatedJob = {

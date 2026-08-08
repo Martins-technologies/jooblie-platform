@@ -5,8 +5,7 @@ import {
 } from "@jooblie/core";
 import { Link, useParams } from "react-router-dom";
 
-import { CompanyLogo } from "../components/CompanyLogo";
-import { Container } from "../components/Container";
+import { CompanyLogo, Container } from "@jooblie/ui";
 import { SeekerJobActions } from "../components/SeekerJobActions";
 import {
   formatEmploymentType,
