@@ -16,8 +16,15 @@
     "@jooblie/config": "workspace:*",
     "@jooblie/core": "workspace:*"
   },
+  "peerDependencies": {
+    "react": "19.2.7",
+    "react-router-dom": "7.18.1"
+  },
   "devDependencies": {
+    "@types/react": "19.2.17",
     "eslint": "9.39.5",
+    "react": "19.2.7",
+    "react-router-dom": "7.18.1",
     "typescript": "5.9.3"
   }
 }
