@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { getSupabaseClient } from "@jooblie/core";
 
-import { getCompanyInitials } from "../job-format";
+import { getCompanyInitials } from "../support/job-format";
 
-type CompanyLogoProps = {
+export type CompanyLogoProps = {
   readonly companyName: string;
   readonly logoPath: string | null;
   readonly size?: "sm" | "md";
@@ -24,7 +24,7 @@ export function CompanyLogo({
     ? getSupabaseClient().storage.from("company-logos").getPublicUrl(logoPath)
         .data.publicUrl
     : null;
-  const className = `${sizeClasses[size]} shrink-0 rounded-lg border border-border bg-blue-50`;
+  const className = `${sizeClasses[size]} shrink-0 rounded-lg border border-border bg-primary/10`;
 
   if (!publicUrl || imageFailed) {
     return (

@@ -3,18 +3,18 @@ import type { JobListRow } from "@jooblie/core";
 
 type EmploymentType = JobListRow["employment_type"];
 
-type Sector = {
+export type Sector = {
   readonly id: number;
   readonly name: string;
 };
 
-type Category = {
+export type Category = {
   readonly id: number;
   readonly name: string;
   readonly sector_id: number;
 };
 
-type JobFiltersProps = {
+export type JobFiltersProps = {
   readonly categories: readonly Category[];
   readonly currentParams: URLSearchParams;
   readonly onApply: (params: URLSearchParams) => void;
@@ -34,7 +34,7 @@ const employmentTypes: ReadonlyArray<{
 ];
 
 const fieldClassName =
-  "mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-blue-100";
+  "mt-1.5 w-full rounded-md border border-border bg-white px-3 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20";
 
 export function JobFilters({
   categories,
@@ -201,7 +201,7 @@ export function JobFilters({
 
         <div className="flex gap-3">
           <button
-            className="flex-1 rounded-md bg-primary px-4 py-2.5 text-sm font-bold text-white hover:bg-blue-700"
+            className="flex-1 rounded-md bg-primary px-4 py-2.5 text-sm font-bold text-white hover:bg-primary/90"
             type="submit"
           >
             Apply filters

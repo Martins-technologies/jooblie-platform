@@ -9,8 +9,7 @@ import {
 } from "@jooblie/core";
 import { Link, useNavigate } from "react-router-dom";
 
-import { Container } from "../components/Container";
-import { JobCard } from "../components/JobCard";
+import { Container, JobCard } from "@jooblie/ui";
 
 export function HomePage() {
   const navigate = useNavigate();

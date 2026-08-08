@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "@jooblie/core";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-import { Container } from "./Container";
+import { Container } from "@jooblie/ui";
 
 const navLinkClass = ({ isActive }: { readonly isActive: boolean }) =>
   `rounded px-1 py-1 text-sm font-semibold text-white outline-none hover:text-blue-200 focus-visible:ring-2 focus-visible:ring-white ${

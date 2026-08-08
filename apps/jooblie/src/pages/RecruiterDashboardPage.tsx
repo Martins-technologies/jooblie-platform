@@ -4,7 +4,7 @@ import {
 } from "@jooblie/core";
 import { Link } from "react-router-dom";
 
-import { Container } from "../components/Container";
+import { Container } from "@jooblie/ui";
 import { LoadingPage } from "../components/LoadingPage";
 import {
   companyVerificationLabels,

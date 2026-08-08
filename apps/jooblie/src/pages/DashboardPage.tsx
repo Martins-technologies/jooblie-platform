@@ -8,8 +8,7 @@ import {
 } from "@jooblie/core";
 import { Link } from "react-router-dom";
 
-import { Container } from "../components/Container";
-import { JobCard } from "../components/JobCard";
+import { Container, JobCard } from "@jooblie/ui";
 import {
   applicationStatusLabels,
   formatPostedDate,

@@ -1,4 +1,4 @@
-import { Container } from "../components/Container";
+import { Container } from "@jooblie/ui";
 
 // PLACEHOLDER — swap with verified client content before production.
 const CONTACT_CONTENT = {

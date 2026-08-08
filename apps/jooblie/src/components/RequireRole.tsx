@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { useRequireRole, type UserRole } from "@jooblie/core";
 import { Link, Navigate, useLocation } from "react-router-dom";
 
-import { Container } from "./Container";
+import { Container } from "@jooblie/ui";
 import { LoadingPage } from "./LoadingPage";
 
 type RequireRoleProps = {

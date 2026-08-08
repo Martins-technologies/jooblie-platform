@@ -10,8 +10,7 @@ import {
   useSearchParams,
 } from "react-router-dom";
 
-import { CompanyLogo } from "../components/CompanyLogo";
-import { Container } from "../components/Container";
+import { CompanyLogo, Container } from "@jooblie/ui";
 
 const PAGE_SIZE = 9;
 

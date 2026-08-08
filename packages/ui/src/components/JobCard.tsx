@@ -7,7 +7,7 @@ import {
   formatJobLocation,
   formatPostedDate,
   formatSalary,
-} from "../job-format";
+} from "../support/job-format";
 import { CompanyLogo } from "./CompanyLogo";
 
 export type JobCardData = Pick<
@@ -34,7 +34,7 @@ export type JobCardData = Pick<
   };
 };
 
-type JobCardProps = {
+export type JobCardProps = {
   readonly actions?: ReactNode;
   readonly headingLevel?: 2 | 3;
   readonly job: JobCardData;

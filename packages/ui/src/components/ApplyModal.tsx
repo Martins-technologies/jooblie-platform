@@ -1,8 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import {
-  env,
   getSupabaseClient,
-  resolveSite,
   useApply,
   type JobDetailRow,
 } from "@jooblie/core";
@@ -12,10 +10,11 @@ const PDF_MIME_TYPE = "application/pdf";
 const DOCX_MIME_TYPE =
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 
-type ApplyModalProps = {
+export type ApplyModalProps = {
   readonly job: JobDetailRow;
   readonly onApplied: (message?: string) => void;
   readonly onClose: () => void;
+  readonly siteId: number;
   readonly userId: string;
 };
 
@@ -55,6 +54,7 @@ export function ApplyModal({
   job,
   onApplied,
   onClose,
+  siteId,
   userId,
 }: ApplyModalProps) {
   const applyMutation = useApply();
@@ -66,7 +66,6 @@ export function ApplyModal({
     null,
   );
   const submitting = uploading || applyMutation.isPending;
-  const currentSiteId = resolveSite(env.appSlug)?.id ?? 1;
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFile(event.target.files?.[0] ?? null);
@@ -117,7 +116,7 @@ export function ApplyModal({
 
     try {
       await applyMutation.mutateAsync({
-        appliedViaSiteId: currentSiteId,
+        appliedViaSiteId: siteId,
         coverLetter: coverLetter.trim() || null,
         jobId: job.id,
         resumePath,
@@ -148,7 +147,7 @@ export function ApplyModal({
     <div
       aria-labelledby="apply-dialog-title"
       aria-modal="true"
-      className="fixed inset-0 z-[60] flex items-end justify-center bg-slate-950/60 p-0 sm:items-center sm:p-4"
+      className="fixed inset-0 z-[60] flex items-end justify-center bg-foreground/60 p-0 sm:items-center sm:p-4"
       role="dialog"
     >
       <div className="max-h-[95vh] w-full overflow-y-auto rounded-t-2xl bg-white p-5 shadow-xl sm:max-w-xl sm:rounded-2xl sm:p-7">
@@ -194,7 +193,7 @@ export function ApplyModal({
           <label className="block text-sm font-semibold">
             Cover letter <span className="font-normal text-muted">(optional)</span>
             <textarea
-              className="mt-2 min-h-36 w-full rounded-md border border-border px-3 py-2.5 leading-6 outline-none focus:border-primary focus:ring-2 focus:ring-blue-100"
+              className="mt-2 min-h-36 w-full rounded-md border border-border px-3 py-2.5 leading-6 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
               disabled={submitting}
               maxLength={5000}
               onChange={(event) => setCoverLetter(event.target.value)}
@@ -213,7 +212,7 @@ export function ApplyModal({
           ) : null}
 
           <button
-            className="w-full rounded-md bg-primary px-5 py-3 font-bold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="w-full rounded-md bg-primary px-5 py-3 font-bold text-white hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
             disabled={submitting}
             type="submit"
           >

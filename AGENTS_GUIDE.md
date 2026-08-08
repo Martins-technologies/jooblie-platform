@@ -13,6 +13,10 @@
 - **Completed public-page polish:** Companies now mirrors the Home hero's
   full-background image and flat navy scrim treatment; About uses a responsive
   image-only hero panel in place of the illustrative placeholder job card.
+- **Completed shared UI extraction:** `@jooblie/ui` now owns `Container`,
+  `CompanyLogo`, `JobCard`, `JobFilters`, and `ApplyModal`, plus the shared job
+  display-format helpers. Jooblie consumes those package exports, and partner
+  sites must consume the same exports instead of copying Jooblie components.
 - **Completed admin app:** Dashboard stats overview; the admin app is fully
   complete.
 - **Repo:** webixsolutions-dev/jooblie-platform
@@ -45,6 +49,14 @@
 - pnpm gen:types — regenerate DB types (Phase 1+)
 
 ## In-Flight Notes
+- **The initial `@jooblie/ui` extraction is complete.** `Container`,
+  `CompanyLogo`, `JobCard`, `JobFilters`, and `ApplyModal` are theme-token-driven
+  package components. `ApplyModal` requires an explicit `siteId` prop and never
+  resolves or falls back to Jooblie internally. Shared employment, location,
+  posted-date, salary, and company-initial formatters live with UI; Jooblie's
+  app-local formatter module re-exports them while retaining only application
+  status labels. Public nav/footer/layout, dashboard/auth/role guards,
+  `SeekerJobActions`, and the legacy branded shell remain Jooblie-specific.
 - **The admin app is fully complete.** The dashboard reads exact, head-only
   counts for non-deleted companies, jobs, and applications through the raw
   admin Supabase client path. It shows company verification as an SVG donut,

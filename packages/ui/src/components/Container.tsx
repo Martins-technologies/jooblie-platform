@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-type ContainerProps = {
+export type ContainerProps = {
   readonly children: ReactNode;
   readonly className?: string;
 };
